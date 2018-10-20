@@ -38,21 +38,21 @@ export class MongodbService {
     }
   }
 
-  addEntry(entry: Object): void {
+  addEntry(collec: String, entry: Object): void {
     if (this.client.auth.isLoggedIn) {
-      const collection = this.mdb.db('StashDB').collection('StashCollection');
+      const collection = this.mdb.db('StashDB').collection(collec);
       collection.insertOne({ owner_id: this.client.auth.user.id, message: 'Database working ' + Date.now() });
     } else {
       console.log('Error: User is not logged in');
     }
   }
 
-  getEntries(query: Object): Promise<any[]> {
-    const collection: RemoteMongoCollection<any[]> = this.mdb.db('StashDB').collection('StashCollection');
+  getEntries(collec: String, query: Object): Promise<any[]> {
+    const collection: RemoteMongoCollection<any[]> = this.mdb.db('StashDB').collection(collec);
     return collection.find(query).asArray();
   }
 
-  printEntries(query: Object): void {
-    this.getEntries(query).then(results => { console.log(results); });
+  printEntries(collec: String, query: Object): void {
+    this.getEntries(collec).then(results => { console.log(results); });
   }
 }
