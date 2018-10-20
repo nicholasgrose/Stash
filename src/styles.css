@@ -5,6 +5,7 @@
  */
 
 body {
+  background: rgba(0, 154, 255, 0.5);
   overflow-x: hidden;
 }
 
@@ -29,7 +30,7 @@ body {
   margin-left: -250px;
   overflow-x: hidden;
   overflow-y: auto;
-  background: #000;
+  background: #ffb347;
   -webkit-transition: all 0.5s ease;
   -moz-transition: all 0.5s ease;
   -o-transition: all 0.5s ease;
@@ -71,13 +72,20 @@ body {
 .sidebar-nav li a {
   display: block;
   text-decoration: none;
-  color: #999999;
+  color: #006cb2;
+  transition: color 0.08s ease;
+  transition: font-weight 0.08s ease;
+  transition: background-color 0.5s ease;
 }
 
 .sidebar-nav li a:hover {
+  font-weight: bold;
   text-decoration: none;
-  color: #fff;
-  background: rgba(255, 255, 255, 0.2);
+  color: #009aff;
+  background: rgba(255, 150, 0, 0.6);
+  transition: color 0.08s ease;
+  transition: font-weight 0.08s ease;
+  transition: background-color 0.2s ease;
 }
 
 .sidebar-nav li a:active, .sidebar-nav li a:focus {
@@ -91,11 +99,11 @@ body {
 }
 
 .sidebar-nav>.sidebar-brand a {
-  color: #999999;
+  color: #006cb2;
 }
 
 .sidebar-nav>.sidebar-brand a:hover {
-  color: #fff;
+  color: #009aff;
   background: none;
 }
 
