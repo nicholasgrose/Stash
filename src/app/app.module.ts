@@ -9,6 +9,9 @@ import { MongoDbComponent } from './mongo-db/mongo-db.component';
 import { MapComponent } from './map/map.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DashboardListComponent } from './dashboard-list/dashboard-list.component';
+import { DashboardMessageListComponent } from './dashboard-message-list/dashboard-message-list.component';
+import { DashboardStashListComponent } from './dashboard-stash-list/dashboard-stash-list.component';
+import { DashboardClientListComponent } from './dashboard-client-list/dashboard-client-list.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,10 @@ import { DashboardListComponent } from './dashboard-list/dashboard-list.componen
     MongoDbComponent,
     MapComponent,
     DashboardComponent,
-    DashboardListComponent
+    DashboardListComponent,
+    DashboardMessageListComponent,
+    DashboardStashListComponent,
+    DashboardClientListComponent
   ],
   imports: [
     BrowserModule,

@@ -1,1 +1,19 @@
+.chart-option {
+  margin: 1%;
+  color: white;
+  background-color: #ffb347;
+  border-color: rgba(0, 0, 0, 0);
+}
+.chart-option:hover {
+  background-color: #ff9600;
+}
+.chart-option:active {
+  background-color: #006cb2 !important;
+}
+.chart-option:active, .chart-option:focus {
+  box-shadow: #006cb2 !important;
+}
 
+.center {
+  margin: auto;
+}

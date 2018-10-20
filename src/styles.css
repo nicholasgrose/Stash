@@ -79,7 +79,7 @@ body {
 .sidebar-nav li a {
   display: block;
   text-decoration: none;
-  color: #006cb2;
+  color: #fff;
   transition: color 0.08s ease;
   transition: font-weight 0.08s ease;
   transition: background-color 0.5s ease;
@@ -88,7 +88,7 @@ body {
 .sidebar-nav li a:hover {
   font-weight: bold;
   text-decoration: none;
-  color: #009aff;
+  color: rgba(0, 154, 255, 0.9);
   background: rgba(255, 150, 0, 0.6);
   transition: color 0.08s ease;
   transition: font-weight 0.08s ease;
@@ -106,11 +106,11 @@ body {
 }
 
 .sidebar-nav>.sidebar-brand a {
-  color: #006cb2;
+  color: #fff;
 }
 
 .sidebar-nav>.sidebar-brand a:hover {
-  color: #009aff;
+  color: rgba(0, 154, 255, 0.9);
   background: none;
 }
 

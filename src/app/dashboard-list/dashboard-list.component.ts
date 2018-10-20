@@ -1,3 +1,4 @@
+import { MongodbService } from './../mongodb.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +7,33 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard-list.component.css']
 })
 export class DashboardListComponent implements OnInit {
+  messageList;
+  stashList;
+  clientList;
+  displayedList: ActiveList = ActiveList.Message;
 
-  constructor() { }
+  constructor(private mongoDb: MongodbService) { }
 
   ngOnInit() {
   }
 
+  setDisplayedList(list: ActiveList): void {
+    this.displayedList = list;
+  }
+
+  isMessageList(): boolean {
+    return this.displayedList === ActiveList.Message;
+  }
+  isStashList(): boolean {
+    return this.displayedList === ActiveList.Stash;
+  }
+  isClientList(): boolean {
+    return this.displayedList === ActiveList.Client;
+  }
+}
+
+enum ActiveList {
+  Message,
+  Stash,
+  Client
 }

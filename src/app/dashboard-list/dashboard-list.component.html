@@ -1,3 +1,27 @@
 <div class="center">
-  Placeholder
+
+  <div>
+    <a href="javascript:void(0)" class="btn btn-primary chart-option" (click)="setDisplayedList(0)">
+      Messages
+    </a>
+    <a href="javascript:void(0)" class="btn btn-primary chart-option" (click)="setDisplayedList(1)">
+      Stashes
+    </a>
+    <a href="javascript:void(0)" class="btn btn-primary chart-option" (click)="setDisplayedList(2)" >
+      Clients
+    </a>
+  </div>
+
+  <div>
+    <div *ngIf="isMessageList()" >
+      <app-dashboard-message-list></app-dashboard-message-list>
+    </div>
+    <div *ngIf="isStashList()" >
+      <app-dashboard-stash-list></app-dashboard-stash-list>>
+    </div>
+    <div *ngIf="isClientList()" >
+      <app-dashboard-client-list></app-dashboard-client-list>
+    </div>
+  </div>
+
 </div>
