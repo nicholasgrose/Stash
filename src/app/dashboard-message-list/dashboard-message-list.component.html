@@ -1,3 +1,21 @@
-<p>
-  dashboard-message-list works!
-</p>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Client</th>
+      <th scope="col">Stash Description</th>
+      <th scope="col">Stash Start Date</th>
+      <th scope="col">Stash End Date</th>
+      <th scope="col">Space Used</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let message of messageList">
+    <tr>
+      <th scope="row">{{message.client_id}}</th>
+      <td>{{message.description}}</td>
+      <td>{{message.start_date}}</td>
+      <td>{{message.end_date}}</td>
+      <td>{{message.boxes[0]}}</td>
+    </tr>
+  </tbody>
+</table>
+

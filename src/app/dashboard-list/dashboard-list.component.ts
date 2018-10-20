@@ -15,6 +15,9 @@ export class DashboardListComponent implements OnInit {
   constructor(private mongoDb: MongodbService) { }
 
   ngOnInit() {
+    this.clientList = this.mongoDb.getEntries('Transactions', { 'stash_id': this.mongoDb.client.auth.user.id }).then(x => x);
+    this.stashList = this.mongoDb.getEntries('Transactions', { 'client_id': this.mongoDb.client.auth.user.id }).then(x => x);
+    this.messageList = [];
   }
 
   setDisplayedList(list: ActiveList): void {

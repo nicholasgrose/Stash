@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Transaction } from '../transaction';
 
 @Component({
   selector: 'app-dashboard-message-list',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard-message-list.component.css']
 })
 export class DashboardMessageListComponent implements OnInit {
+  @Input() messageList: Transaction[];
 
   constructor() { }
 

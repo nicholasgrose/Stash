@@ -1,3 +1,20 @@
-<p>
-  dashboard-stash-list works!
-</p>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Stasher</th>
+      <th scope="col">Stash Description</th>
+      <th scope="col">Stash Start Date</th>
+      <th scope="col">Stash End Date</th>
+      <th scope="col">Space Used</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let stash of stashList">
+    <tr>
+      <th scope="row">{{stash.client_id}}</th>
+      <td>{{stash.description}}</td>
+      <td>{{stash.start_date}}</td>
+      <td>{{stash.end_date}}</td>
+      <td>{{stash.boxes[0]}}</td>
+    </tr>
+  </tbody>
+</table>

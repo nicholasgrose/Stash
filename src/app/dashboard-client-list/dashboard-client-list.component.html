@@ -1,3 +1,20 @@
-<p>
-  dashboard-client-list works!
-</p>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Client</th>
+      <th scope="col">Stash Description</th>
+      <th scope="col">Stash Start Date</th>
+      <th scope="col">Stash End Date</th>
+      <th scope="col">Space Used</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let client of clientList">
+    <tr>
+      <th scope="row">{{client.client_id}}</th>
+      <td>{{client.description}}</td>
+      <td>{{client.start_date}}</td>
+      <td>{{client.end_date}}</td>
+      <td>{{client.boxes[0]}}</td>
+    </tr>
+  </tbody>
+</table>
