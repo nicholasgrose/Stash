@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { Stitch, RemoteMongoClient, GoogleRedirectCredential } from 'mongodb-stitch-browser-sdk';
-
+//import { Stitch, RemoteMongoClient, AnonymousCredential, GoogleRedirectCredential } from "mongodb-stitch-browser-sdk";
+import { MongodbService } from '../mongodb.service';
 
 // connects the stitch app GoogleAuth
+/*
 const appId = 'googleauth-jyvbi';
 const client = Stitch.initializeDefaultAppClient(appId);
 const mdb = client.getServiceClient(RemoteMongoClient.factory, 'mongodb-atlas');
+*/
 
 @Component({
   selector: 'app-mongo-db',
@@ -14,40 +16,35 @@ const mdb = client.getServiceClient(RemoteMongoClient.factory, 'mongodb-atlas');
 })
 export class MongoDbComponent implements OnInit {
 
-  constructor() { }
+  constructor( private mongoDB : MongodbService ) { }
 
-  ngOnInit() {
+  ngOnInit() { //TODO: move to whereever we put the user after they log in
+    let client = this.mongoDB.client;
     if (client.auth.hasRedirectResult()) {
-      console.log('AAAAAAAAAAAAAAAAAAAA');
       client.auth.handleRedirectResult().then(user => {
           console.log(user);
       });
     }
     console.log(client.auth.user);
+    console.log(this.mongoDB.getEntries({user_id: this.mongoDB.client.id}));
   }
 
-  authenticate() {
-    console.log('AAAAAAAA');
-    if (!client.auth.isLoggedIn) {
-      const credential = new GoogleRedirectCredential();
-      Stitch.defaultAppClient.auth.loginWithRedirect(credential);
-    }
 
-  }
-
-  addEntry() {
+  /*
+  addEntry(entry: Object) {
     const collection = mdb.db('StashDB').collection('StashCollection');
-    collection.insertOne({ owner_id: client.auth.user.id, message: 'Database working ' + Date.now() });
+    collection.insert({ owner_id: client.auth.user.id, message: "Database working " + Date.now() });
 
-    console.log( {owner_id: client.auth.user.id, message: 'Database working ' + Date.now() });
+    console.log( {owner_id: client.auth.user.id, message: "Database working " + Date.now() });
   }
 
-  printDB() {
+  printDB(query: Object) {
     const collection = mdb.db('StashDB').collection('StashCollection');
     collection.find(
       { owner_id: client.auth.user.id }
     ).asArray().then(results => {
-      console.log(results);
+      console.log(results)
     });
   }
+  */
 }
