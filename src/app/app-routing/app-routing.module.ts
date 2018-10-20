@@ -1,10 +1,11 @@
 import { AppComponent } from './../app.component';
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { SidebarComponent } from '../sidebar/sidebar.component';
+import { RouterModule } from '@angular/router';
+import { WelcomeComponent } from '../welcome/welcome.component';
 
 const routes = [
-  { path: '*', component: AppComponent }
+  { path: 'welcome', component: WelcomeComponent },
+  { path: '**', redirectTo: '/welcome', pathMatch: 'full' }
 ];
 
 @NgModule({
