@@ -5,12 +5,14 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { WelcomeComponent } from './welcome/welcome.component';
+import { MongoDbComponent } from './mongo-db/mongo-db.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SidebarComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    MongoDbComponent
   ],
   imports: [
     BrowserModule,

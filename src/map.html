@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta name="viewport" content="initial-scale=1.0, 
+        width=device-width" />
+  <script src="http://js.api.here.com/v3/3.0/mapsjs-core.js" type="text/javascript" charset="utf-8"></script>
+  <script src="http://js.api.here.com/v3/3.0/mapsjs-service.js" type="text/javascript" charset="utf-8"></script>
+  <script src="http://js.api.here.com/v3/3.0/mapsjs-ui.js" type="text/javascript" charset="utf-8"></script>
+  <link rel="stylesheet" type="text/css" href="http://js.api.here.com/v3/3.0/mapsjs-ui.css" />
+  <meta charset="utf-8">
+  <title>Stash</title>
+  <base href="/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<script type="text/javascript" charset="utf-8">
+  //Initialize the Platform object:
+  var platform = new H.service.Platform({
+    'app_id': 'bGlZviYK27BVoTnWKvJ0',
+    'app_code': 'hrVFoaJfHESqeeZBoBvddg'
+  });
+
+  // Get the default map types from the Platform object:
+  var defaultLayers = platform.createDefaultLayers();
+
+  // Instantiate the map:
+  var map = new H.Map(
+    document.getElementById('mapContainer'),
+    defaultLayers.normal.map, {
+      zoom: 10,
+      center: {
+        lng: 13.4,
+        lat: 52.51
+      }
+    });
+
+  // Create the default UI:
+  var ui = H.ui.UI.createDefault(map, defaultLayers);
+  // Only giving the user the ability to zoom in and out
+  ui.getControl('zoom').setEnabled(true);
+  ui.getControl('pano').setEnabled(false);
+  ui.getControl('mapsettings').setEnabled(false);
+  ui.getControl('scalebar').setEnabled(false);
+
+  // Define a variable holding SVG mark-up that defines an icon image:
+  var svgMarkup = '<svg width="24" height="24" ' +
+    'xmlns="http://www.w3.org/2000/svg">' +
+    '<rect stroke="white" fill="#1b468d" x="1" y="1" width="22" ' +
+    'height="22" /><text x="12" y="18" font-size="12pt" ' +
+    'font-family="Arial" font-weight="bold" text-anchor="middle" ' +
+    'fill="white">H</text></svg>';
+
+  // Create an icon, an object holding the latitude and longitude, and a marker:
+  var icon = new H.map.Icon(svgMarkup),
+    coords = {
+      lat: 52.53075,
+      lng: 13.3851
+    },
+    marker = new H.map.Marker(coords, {
+      icon: icon
+    });
+
+  // Add the marker to the map and center the map at the location of the marker:
+  map.addObject(marker);
+  map.setCenter(coords);
+
+</script>
+
+<body>
+  <app-root></app-root>
+</body>
+
+</html>
