@@ -8,6 +8,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { MongoDbComponent } from './mongo-db/mongo-db.component';
 import { MapComponent } from './map/map.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { DashboardListComponent } from './dashboard-list/dashboard-list.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     WelcomeComponent,
     MongoDbComponent,
     MapComponent,
-    DashboardComponent
+    DashboardComponent,
+    DashboardListComponent
   ],
   imports: [
     BrowserModule,

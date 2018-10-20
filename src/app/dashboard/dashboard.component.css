@@ -1,0 +1,9 @@
+.row {
+  margin: auto;
+}
+
+button {
+  margin: auto;
+  margin-top: 5%;
+  display: block;
+}

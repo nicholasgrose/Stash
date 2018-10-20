@@ -6,6 +6,26 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+  messages: any[] = [
+    {
+      client: 'Bob',
+      storageRequested: 1,
+      stashDescription: 'Pictures',
+      timePeriod: 3
+    },
+    {
+      client: 'Bob',
+      storageRequested: 1,
+      stashDescription: 'Pictures',
+      timePeriod: 4
+    },
+    {
+      client: 'Bob',
+      storageRequested: 1,
+      stashDescription: 'Pictures',
+      timePeriod: 5
+    }
+  ];
 
   constructor() { }
 
