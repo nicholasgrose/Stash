@@ -9,7 +9,7 @@ body {
 }
 
 #wrapper {
-  padding-left: 100px;
+  padding-left: 5%;
   -webkit-transition: all 0.5s ease;
   -moz-transition: all 0.5s ease;
   -o-transition: all 0.5s ease;
@@ -24,7 +24,7 @@ body {
   z-index: 1000;
   position: fixed;
   left: 250px;
-  width: 100px;
+  width: 5%;
   height: 100%;
   margin-left: -250px;
   overflow-x: hidden;
@@ -101,13 +101,13 @@ body {
 
 @media(min-width:768px) {
   #wrapper {
-    padding-left: 100px;
+    padding-left: 5%;
   }
   #wrapper.toggled {
     padding-left: 250px;
   }
   #sidebar-wrapper {
-    width: 100px;
+    width: 5%;
   }
   #wrapper.toggled #sidebar-wrapper {
     width: 250px;
