@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MongodbService } from '../mongodb.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -27,9 +28,14 @@ export class DashboardComponent implements OnInit {
     }
   ];
 
-  constructor() { }
+  constructor( mongoDB : MongodbService) { }
 
   ngOnInit() {
+    if (this.mongoDB.client.auth.hasRedirectResult()) {
+      this.mongoDB.client.auth.handleRedirectResult().then(user => {
+          console.log(user);
+      });
+    }
   }
 
 }
