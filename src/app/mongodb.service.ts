@@ -29,9 +29,9 @@ export class MongodbService {
     this.mdb = this.client.getServiceClient(RemoteMongoClient.factory, 'mongodb-atlas');
   }
 
-  authenticate(): void {
+  authenticate(callback: string): void {
     if (!this.client.auth.isLoggedIn) {
-      const credential = new GoogleRedirectCredential();
+      const credential = new GoogleRedirectCredential(callback);
       Stitch.defaultAppClient.auth.loginWithRedirect(credential);
     } else {
       console.log('Error: User is already logged in: ' + this.client.auth.user.id);
