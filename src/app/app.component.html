@@ -1,10 +1,10 @@
 <div id="wrapper" [ngClass]="{'toggled': sidebarToggled}" >
 
-  <app-sidebar></app-sidebar>
+  <app-sidebar (mouseover)="sidebarToggled=true" (mouseleave)="sidebarToggled=false"></app-sidebar>
   <!-- Page Content -->
   <div id="page-content-wrapper">
     <div class="container-fluid">
-      <a href="#" class="btn btn-secondary" id="menu-toggle" (click)="toggleSidebar()" >&#9776;</a>
+      <a href="javascript:void(0)" class="btn btn-secondary" id="menu-toggle" (click)="toggleSidebar()" >&#9776;</a>
       <router-outlet></router-outlet>
     </div>
   </div>

@@ -27,6 +27,7 @@ body {
   width: 0;
   height: 100%;
   margin-left: -250px;
+  overflow-x: hidden;
   overflow-y: auto;
   background: #000;
   -webkit-transition: all 0.5s ease;
@@ -100,13 +101,13 @@ body {
 
 @media(min-width:768px) {
   #wrapper {
-    padding-left: 0;
+    padding-left: 100px;
   }
   #wrapper.toggled {
     padding-left: 250px;
   }
   #sidebar-wrapper {
-    width: 0;
+    width: 100px;
   }
   #wrapper.toggled #sidebar-wrapper {
     width: 250px;

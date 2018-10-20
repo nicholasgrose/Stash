@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  sidebarToggled = true;
+  sidebarToggled = false;
 
   toggleSidebar() {
     this.sidebarToggled = !this.sidebarToggled;
