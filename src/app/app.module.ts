@@ -7,6 +7,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { MongoDbComponent } from './mongo-db/mongo-db.component';
 import { MapComponent } from './map/map.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { MapComponent } from './map/map.component';
     SidebarComponent,
     WelcomeComponent,
     MongoDbComponent,
-    MapComponent
+    MapComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
