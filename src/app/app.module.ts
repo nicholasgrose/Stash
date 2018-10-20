@@ -9,6 +9,7 @@ import { MongoDbComponent } from './mongo-db/mongo-db.component';
 import { MapComponent } from './map/map.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DashboardListComponent } from './dashboard-list/dashboard-list.component';
+import { CreateaccountComponent } from './createaccount/createaccount.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { DashboardListComponent } from './dashboard-list/dashboard-list.componen
     MongoDbComponent,
     MapComponent,
     DashboardComponent,
-    DashboardListComponent
+    DashboardListComponent,
+    CreateaccountComponent
   ],
   imports: [
     BrowserModule,
