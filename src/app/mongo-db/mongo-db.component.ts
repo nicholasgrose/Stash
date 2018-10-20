@@ -26,7 +26,7 @@ export class MongoDbComponent implements OnInit {
       });
     }
     console.log(client.auth.user);
-    console.log(this.mongoDB.getEntries({user_id: this.mongoDB.client.id}));
+    this.mongoDB.getEntries({}).then(x => { console.log(x) });
   }
 
 

@@ -34,7 +34,7 @@ export class MongodbService {
   addEntry(entry: Object) {
     if (this.client.auth.isLoggedIn) {
       const collection = this.mdb.db('StashDB').collection('StashCollection');
-      collection.insert({ owner_id: this.client.auth.user.id, message: "Database working " + Date.now() });
+      collection.insertOne({ owner_id: this.client.auth.user.id, message: "Database working " + Date.now() });
     } else {
       console.log("Error: User is not logged in");
     }
@@ -42,16 +42,15 @@ export class MongodbService {
 
   getEntries(query: Object) : any[] {
     const collection = this.mdb.db('StashDB').collection('StashCollection');
-    collection.find(query).asArray().then(results => {
-      return results;
-      console.log(results);
-    });
+    return collection.find(query).asArray();
   }
 
   getEntry(query: Object) : any {
     const collection = this.mdb.db('StashDB').collection('StashCollection');
-    collection.findOne(query).then(result => {
-      return result;
-    });
+    return collection.findOne(query);
+  }
+
+  printEntries(query: Object) {
+    this.getEntries(query).then(results => { console.log(results) })
   }
 }
