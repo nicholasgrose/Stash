@@ -16,9 +16,6 @@ export class CreateaccountComponent implements OnInit {
   end_date: number;
   boxes: [];
 
-
-
-
   constructor( private mongoDB : MongodbService ) { }
 
   ngOnInit() {
@@ -29,11 +26,10 @@ export class CreateaccountComponent implements OnInit {
           console.log(user);
       });
     }
-
-
   }
 
   submit() {
+    //TODO: 4 text boxes
     //TODO: check that no boxes are empty
     user: User = {
       id: this.mongoDB.client.auth.user.id,
@@ -48,8 +44,7 @@ export class CreateaccountComponent implements OnInit {
   }
 
   addTransaction() {
-    //TODO: UI with text box for end date, (dropdown?) for selected location,
-    //scaling number of text boxes for boxes with dimensions and descriptions
+    //TODO: 4 text boxes, 1 dropdown box with addresses
     if (boxes < 1) {
       return;
     }// else if (start_date > end_date) TODO: convert date input to ms since epoch
@@ -58,6 +53,7 @@ export class CreateaccountComponent implements OnInit {
       start_date: this.start_date,
       end_date: this.end_date,
       boxes: this.boxes,
+      address: this.address,
       client_id: this.mongoDB.client.auth.user.id
     }
 
@@ -67,5 +63,7 @@ export class CreateaccountComponent implements OnInit {
 
     this.mongoDB.addEntry('Transactions', transaction);
   }
+
+
 
 }
