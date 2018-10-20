@@ -111,11 +111,17 @@ body {
   #wrapper {
     padding-left: 5%;
   }
+  #wrapper.toggledoff {
+    padding-left: 0;
+  }
   #wrapper.toggled {
     padding-left: 250px;
   }
   #sidebar-wrapper {
     width: 5%;
+  }
+  #wrapper.toggledoff #sidebar-wrapper {
+    width: 0;
   }
   #wrapper.toggled #sidebar-wrapper {
     width: 250px;

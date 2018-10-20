@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Stitch, RemoteMongoClient, AnonymousCredential, GoogleRedirectCredential } from "mongodb-stitch-browser-sdk";
+import { Stitch, RemoteMongoClient, GoogleRedirectCredential } from 'mongodb-stitch-browser-sdk';
 
 
 // connects the stitch app GoogleAuth
-let appId = 'googleauth-jyvbi';
+const appId = 'googleauth-jyvbi';
 const client = Stitch.initializeDefaultAppClient(appId);
 const mdb = client.getServiceClient(RemoteMongoClient.factory, 'mongodb-atlas');
 
@@ -18,7 +18,7 @@ export class MongoDbComponent implements OnInit {
 
   ngOnInit() {
     if (client.auth.hasRedirectResult()) {
-      console.log("AAAAAAAAAAAAAAAAAAAA");
+      console.log('AAAAAAAAAAAAAAAAAAAA');
       client.auth.handleRedirectResult().then(user => {
           console.log(user);
       });
@@ -27,7 +27,7 @@ export class MongoDbComponent implements OnInit {
   }
 
   authenticate() {
-    console.log("AAAAAAAA");
+    console.log('AAAAAAAA');
     if (!client.auth.isLoggedIn) {
       const credential = new GoogleRedirectCredential();
       Stitch.defaultAppClient.auth.loginWithRedirect(credential);
@@ -37,9 +37,9 @@ export class MongoDbComponent implements OnInit {
 
   addEntry() {
     const collection = mdb.db('StashDB').collection('StashCollection');
-    collection.insert({ owner_id: client.auth.user.id, message: "Database working " + Date.now() });
+    collection.insertOne({ owner_id: client.auth.user.id, message: 'Database working ' + Date.now() });
 
-    console.log( {owner_id: client.auth.user.id, message: "Database working " + Date.now() });
+    console.log( {owner_id: client.auth.user.id, message: 'Database working ' + Date.now() });
   }
 
   printDB() {
@@ -47,7 +47,7 @@ export class MongoDbComponent implements OnInit {
     collection.find(
       { owner_id: client.auth.user.id }
     ).asArray().then(results => {
-      console.log(results)
+      console.log(results);
     });
   }
 }
