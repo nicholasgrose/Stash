@@ -1,4 +1,3 @@
-import { AppComponent } from './../app.component';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { WelcomeComponent } from '../welcome/welcome.component';
