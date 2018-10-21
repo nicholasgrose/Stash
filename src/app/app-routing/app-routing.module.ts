@@ -1,3 +1,4 @@
+import { AboutComponent } from './../about/about.component';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { WelcomeComponent } from '../welcome/welcome.component';
@@ -8,6 +9,7 @@ import { StashsomethingComponent } from '../stashsomething/stashsomething.compon
 
 const routes = [
   { path: 'welcome', component: WelcomeComponent },
+  { path: 'about', component: AboutComponent },
   { path: 'mongo', component: MongoDbComponent },
   { path: 'createaccount', component: CreateaccountComponent },
   { path: 'dashboard', component: DashboardComponent },

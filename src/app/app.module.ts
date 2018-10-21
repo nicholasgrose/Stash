@@ -15,6 +15,7 @@ import { DashboardStashListComponent } from './dashboard-stash-list/dashboard-st
 import { DashboardClientListComponent } from './dashboard-client-list/dashboard-client-list.component';
 import { CreateaccountComponent } from './createaccount/createaccount.component';
 import { StashsomethingComponent } from './stashsomething/stashsomething.component';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { StashsomethingComponent } from './stashsomething/stashsomething.compone
     DashboardStashListComponent,
     DashboardClientListComponent,
     CreateaccountComponent,
-    StashsomethingComponent
+    StashsomethingComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,

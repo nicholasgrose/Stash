@@ -1,0 +1,21 @@
+.centered {
+  align-content: center;
+  margin: auto;
+  width: 50%;
+}
+
+h1 {
+  text-align: center;
+  padding: 5%;
+  margin: auto;
+  font-weight: 300;
+}
+
+h2 {
+  padding-top: 8%;
+  text-align: center;
+}
+
+p {
+  text-align: center;
+}
