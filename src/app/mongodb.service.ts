@@ -4,7 +4,8 @@ import { Stitch,
   RemoteMongoClient,
   GoogleRedirectCredential,
   StitchAppClient,
-  RemoteMongoCollection
+  RemoteMongoCollection,
+  RemoteInsertOneResult
 } from 'mongodb-stitch-browser-sdk';
 
 @Injectable({
@@ -30,12 +31,13 @@ export class MongodbService {
     }
   }
 
-  addEntry(collec: string, entry: Object): void {
+  addEntry(collec: string, entry: Object): Promise<RemoteInsertOneResult> {
     if (this.client.auth.isLoggedIn) {
       const collection = this.mdb.db('StashDB').collection(collec);
-      collection.insertOne({ owner_id: this.client.auth.user.id, message: 'Database working ' + Date.now() });
+      return collection.insertOne({ owner_id: this.client.auth.user.id, message: 'Database working ' + Date.now() });
     } else {
       console.log('Error: User is not logged in');
+      return null;
     }
   }
 

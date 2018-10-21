@@ -1,7 +1,7 @@
 <div class="container">
   <h1>Create Account</h1>
 
-  <form (ngSubmit)="submit()">
+  <form (ngSubmit)="submit()" #createAccountForm="ngForm">
 
     <div class="form-group">
       <label for="name">Name</label>
@@ -22,7 +22,8 @@
     </div>
 
     <div>
-      <button href="javascript:void(0)" type="submit" class="btn submit">Submit</button>
+      <button href="javascript:void(0)" type="submit"
+        class="btn submit" [disabled]="!createAccountForm.form.valid">Submit</button>
       <button href="javascript:void(0)" class="btn cancel" type="button" routerLink="/welcome">Cancel</button>
     </div>
 
