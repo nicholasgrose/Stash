@@ -23,22 +23,28 @@
 
 .create-account-button {
   margin-right: 5%;
-}
-
-.btn-primary {
-  border-color: rgba(0, 0, 0, 0);
+  color: white;
   background-color: #006cb2;
+  border-color: rgba(0, 0, 0, 0);
 }
-.btn-primary:hover {
+.create-account-button:hover:not(:disabled) {
   background-color: #009aff;
 }
-
-.btn-secondary {
-  border-color: rgba(0, 0, 0, 0);
-  background-color: #ffb347;
+.create-account-button:active {
+  background-color: #ff9600 !important;
 }
-.btn-secondary:hover {
+
+.login {
+  margin-right: 5%;
+  color: white;
+  background-color: #ffb347 !important;
+  border-color: rgba(0, 0, 0, 0);
+}
+.login:hover:not(:disabled) {
   background-color: #ff9600;
+}
+.login:active {
+  background-color: #006cb2 !important;
 }
 
 h1 {
