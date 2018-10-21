@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MongodbService } from '../mongodb.service';
 import { Transaction } from '../transaction';
+import { User } from '../user';
 
 @Component({
   selector: 'app-stashsomething',
@@ -18,7 +19,7 @@ export class StashsomethingComponent implements OnInit {
     boxes: 0
   };
   stash_id: string;
-  possibleAddresses: Transaction[];
+  possibleAddresses: User[];
   filteredAddresses: string[];
 
   constructor( private mongoDB: MongodbService ) { }
@@ -47,7 +48,8 @@ export class StashsomethingComponent implements OnInit {
   filterAddresses(): void {
     this.filteredAddresses = this.possibleAddresses
       .filter(value => value.availability >= this.newTransaction.boxes)
-      .map(value => value.address);
+      .map(value => value.billingAddress);
+    console.log(this.filterAddresses);
   }
 
 }

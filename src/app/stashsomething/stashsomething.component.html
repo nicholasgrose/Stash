@@ -32,7 +32,7 @@
       <div class="form-group">
         <label for="boxes">Number of Boxes</label>
         <input [(ngModel)]="newTransaction.boxes" name="boxes" required
-          class="form-control" type="number" id="boxes" (onblur)="filterAddresses()">
+          class="form-control" type="number" id="boxes" (keyup)="filterAddresses()">
       </div>
 
 
