@@ -20,11 +20,12 @@ export class MongoDbComponent implements OnInit {
 
   ngOnInit() { //TODO: move to whereever we put the user after they log in
     let client = this.mongoDB.client;
-    if (this.mongoDB.client.auth.hasRedirectResult()) {
-      this.mongoDB.client.auth.handleRedirectResult().then(user => {
+    if (client.auth.hasRedirectResult()) {
+      client.auth.handleRedirectResult().then(user => {
           console.log(user);
       });
     }
+    this.mongoDB.deleteEntries('StashCollection');
   }
 
 

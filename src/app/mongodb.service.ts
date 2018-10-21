@@ -7,14 +7,6 @@ import { Stitch,
   RemoteMongoCollection
 } from 'mongodb-stitch-browser-sdk';
 
-
-// connects the stitch app GoogleAuth
-/*
-const appId = 'googleauth-jyvbi';
-const client = Stitch.initializeDefaultAppClient(appId);
-const mdb = client.getServiceClient(RemoteMongoClient.factory, 'mongodb-atlas');
-*/
-
 @Injectable({
   providedIn: 'root'
 })
@@ -54,5 +46,20 @@ export class MongodbService {
 
   printEntries(collec: String, query: Object): void {
     this.getEntries(collec).then(results => { console.log(results); });
+  }
+
+  deleteEntries(collec: String, query: Object): void {
+    const collection = this.mdb.db('StashDB').collection(collec);
+    collection.deleteMany(query);
+  }
+
+  deleteEntry(collec: String, query: Object): void {
+    const collection = this.mdb.db('StashDB').collection(collec);
+    collection.deleteOne(query);
+  }
+
+  updateEntry(collec: String, query: Object, property: string, newVal: int): void {
+    const collection = this.mdb.db('StashDB').collection(collec);
+    collection.updateOne(query, { property : newVal });
   }
 }

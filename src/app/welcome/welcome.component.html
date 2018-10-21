@@ -6,8 +6,8 @@
     <h1>Welcome to Stash!</h1>
     <form>
       <div class="input-group-btn inline-center text-center">
-        <button href="javascript:void(0)" type="submit" class="btn btn-primary create-account-button">Create Account</button>
-        <button href="javascript:void(0)" class="btn btn-secondary">Login</button>
+        <button href="javascript:void(0)" type="submit" class="btn btn-primary create-account-button" (click)="this.mongoDB.authenticate('http://localhost:4200/dashboard')">Create Account</button>
+        <button href="javascript:void(0)" class="btn btn-secondary" (click)="this.mongoDB.authenticate('http://localhost:4200/dashboard')">Login</button>
       </div>
     </form>
   </div>

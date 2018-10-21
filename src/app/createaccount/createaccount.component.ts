@@ -38,32 +38,14 @@ export class CreateaccountComponent implements OnInit {
       billingAddress: this.billingAddress,
       email: this.email,
       rating: 5,
-      availability: [];
+      availability: 0;
     }
     this.mongoDB.addEntry('Users', user);
   }
-
-  addTransaction() {
-    //TODO: 4 text boxes, 1 dropdown box with addresses
-    if (boxes < 1) {
-      return;
-    }// else if (start_date > end_date) TODO: convert date input to ms since epoch
-
-    let transaction = {
-      start_date: this.start_date,
-      end_date: this.end_date,
-      boxes: this.boxes,
-      address: this.address,
-      client_id: this.mongoDB.client.auth.user.id
-    }
-
-    transaction.stash_id = this.mongoDB.getEntries('Transactions', {
-        address: this.selectedAddress
-      }).then(x => { return x[0].id });
-
-    this.mongoDB.addEntry('Transactions', transaction);
+  
+  removeTransaction(collec: String, query: Object) {
+    this.mongoDB.deleteEntry(query);
   }
-
 
 
 }
