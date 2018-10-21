@@ -10,7 +10,7 @@ body {
 }
 
 #wrapper {
-  padding-left: 7%;
+  padding-left: 8%;
   -webkit-transition: all 0.5s ease;
   -moz-transition: all 0.5s ease;
   -o-transition: all 0.5s ease;
@@ -29,7 +29,7 @@ body {
   z-index: 1000;
   position: fixed;
   left: 250px;
-  width: 7%;
+  width: 8%;
   height: 100%;
   margin-left: -250px;
   overflow-x: hidden;
@@ -116,7 +116,7 @@ body {
 
 @media(min-width:768px) {
   #wrapper {
-    padding-left: 7%;
+    padding-left: 8%;
   }
   #wrapper.toggled-off {
     padding-left: 0;
@@ -125,7 +125,7 @@ body {
     padding-left: 250px;
   }
   #sidebar-wrapper {
-    width: 7%;
+    width: 8%;
   }
   #wrapper.toggled-off #sidebar-wrapper {
     width: 0;
