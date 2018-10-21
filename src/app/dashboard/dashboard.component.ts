@@ -21,15 +21,19 @@ export class DashboardComponent implements OnInit {
       window.location.href = './welcome';
     }
 
-    this.mongoDB.getEntries('Users', {id:this.mongoDB.client.auth.user.id}).then( x => {
+<<<<<<< HEAD
+    /*this.mongoDB.getEntries('Users', {id:this.mongoDB.client.auth.user.id}).then( x => {
+=======
+    this.mongoDB.getEntries('Users', {id: this.mongoDB.client.auth.user.id}).then( x => {
+>>>>>>> 67f39f13721f66d76ebdb91b19959545df204849
       if (x.length === 0) {
         window.location.href = './createaccount';
       }
-    });
+    });*/
   }
 
-  setAvailableSpace(query: Object, space: number) {
-    this.mongoDB.updateEntry('Users', query, 'availability', space);
+  setAvailableSpace(query: Object) {
+    this.mongoDB.updateEntry('Users', query, 'boxes', prompt("How much space do you have available?"));
   }
 
 }

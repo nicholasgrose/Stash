@@ -1,28 +1,28 @@
-<div class="center">
-  <app-dashboard-list></app-dashboard-list>
-</div>
+<div class="container">
 
+<<<<<<< HEAD
 <div class="row">
   <div class="col-4">
     <div class="sepa">
       <button class="btn btn-primary" routerLink="/stashsomething" routerLinkActive="active">
         Stash something
       </button>
-      <button class="btn btn-secondary" (click)="setAvailableSpace({ id: this.mongoDB.client.auth.user.id }, 0)">
-        <!-- TODO: add text box (or alert?) with available space !-->
+      <button class="btn btn-secondary" (click)="setAvailableSpace({ id: this.mongoDB.client.auth.user.id })">
         Set available space
       </button>
     </div>
+=======
+  <div class="center">
+    <button class="btn btn-primary" routerLink="/stashsomething" routerLinkActive="active">
+      Stash something
+    </button>
+    <button class="btn btn-secondary" (click)="setAvailableSpace({ id: this.mongoDB.client.auth.user.id }, 0)">
+      <!-- TODO: add text box (or alert?) with available space !-->
+      Add available space
+    </button>
+>>>>>>> 67f39f13721f66d76ebdb91b19959545df204849
   </div>
-  <div class="col-8">
 
-  </div>
-</div>
-<div class="row">
-    <div class="col-6">
-      Row 2 Column 1
-    </div>
-    <div class="col-6">
-      Row 2 Column 2
-    </div>
+  <app-dashboard-list></app-dashboard-list>
+
 </div>
