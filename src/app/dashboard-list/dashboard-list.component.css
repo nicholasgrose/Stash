@@ -1,5 +1,5 @@
 .chart-option {
-  margin: 5% 2% 3%;
+  margin: 1%;
   color: white;
   background-color: #ffb347;
   border-color: rgba(0, 0, 0, 0);
@@ -9,11 +9,6 @@
 }
 .chart-option:active {
   background-color: #006cb2 !important;
-}
-
-.centered-button-set {
-  display: flex;
-  justify-content: center;
 }
 
 .center {
