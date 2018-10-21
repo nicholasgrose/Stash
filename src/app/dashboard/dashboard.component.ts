@@ -31,11 +31,16 @@ export class DashboardComponent implements OnInit {
   constructor( mongoDB : MongodbService) { }
 
   ngOnInit() {
-    if (this.mongoDB.client.auth.hasRedirectResult()) {
-      this.mongoDB.client.auth.handleRedirectResult().then(user => {
+    let client = this.mongoDB.client;
+    if (this.client.auth.hasRedirectResult()) {
+      this.client.auth.handleRedirectResult().then(user => {
           console.log(user);
       });
     }
+  }
+
+  setAvailableSpace(query: Object, space: number) {
+    this.mongoDB.updateEntry('Users', query, 'availability', number);
   }
 
 }

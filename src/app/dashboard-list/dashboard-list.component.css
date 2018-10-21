@@ -10,9 +10,6 @@
 .chart-option:active {
   background-color: #006cb2 !important;
 }
-.chart-option:active, .chart-option:focus {
-  box-shadow: #006cb2 !important;
-}
 
 .center {
   margin: auto;
