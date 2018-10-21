@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-//import { Stitch, RemoteMongoClient, AnonymousCredential, GoogleRedirectCredential } from "mongodb-stitch-browser-sdk";
+// import { Stitch, RemoteMongoClient, AnonymousCredential, GoogleRedirectCredential } from "mongodb-stitch-browser-sdk";
 import { MongodbService } from '../mongodb.service';
 
 // connects the stitch app GoogleAuth
@@ -16,7 +16,7 @@ const mdb = client.getServiceClient(RemoteMongoClient.factory, 'mongodb-atlas');
 })
 export class MongoDbComponent implements OnInit {
 
-  constructor( private mongoDB: MongodbService ) { }
+  constructor( public mongoDB: MongodbService ) { }
 
   ngOnInit() { // TODO: move to whereever we put the user after they log in
     const client = this.mongoDB.client;
@@ -25,7 +25,7 @@ export class MongoDbComponent implements OnInit {
           console.log(user);
       });
     }
-    //this.mongoDB.deleteEntries('Users', {});
+    // this.mongoDB.deleteEntries('Users', {});
   }
 
 

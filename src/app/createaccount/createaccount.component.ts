@@ -44,7 +44,7 @@ export class CreateaccountComponent implements OnInit {
   submit() {
     this.newUser.id = this.mongoDB.client.auth.user.id;
 
-    this.mongoDB.addEntry('Users', this.newUser).then(x => { window.location.href = './dashboard' });
+    this.mongoDB.addEntry('Users', this.newUser).then(x => window.location.href = './dashboard');
   }
 
   /*

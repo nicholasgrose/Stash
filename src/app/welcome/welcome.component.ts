@@ -8,7 +8,7 @@ import { MongodbService } from '../mongodb.service';
 })
 export class WelcomeComponent implements OnInit {
 
-  constructor( private mongoDB : MongodbService ) { }
+  constructor( public mongoDB: MongodbService ) { }
 
   ngOnInit() {
     if (this.mongoDB.client.auth.isLoggedIn) {
