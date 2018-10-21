@@ -21,7 +21,7 @@ export class DashboardComponent implements OnInit {
       window.location.href = './welcome';
     }
 
-    this.mongoDB.getEntries('Users', {id:this.mongoDB.client.auth.user.id}).then( x => {
+    this.mongoDB.getEntries('Users', {id: this.mongoDB.client.auth.user.id}).then( x => {
       if (x.length === 0) {
         window.location.href = './createaccount';
       }

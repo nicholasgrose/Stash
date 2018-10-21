@@ -1,6 +1,6 @@
-<div class="center">
+<div class="container center">
 
-  <div>
+  <div class="center centered-button-set">
     <a href="javascript:void(0)" class="btn btn-primary chart-option" (click)="setDisplayedList(0)">
       Messages
     </a>
@@ -17,7 +17,7 @@
       <app-dashboard-message-list [messageList]="messageList"></app-dashboard-message-list>
     </div>
     <div *ngIf="isStashList()">
-      <app-dashboard-stash-list [stashList]="stashList"></app-dashboard-stash-list>>
+      <app-dashboard-stash-list [stashList]="stashList"></app-dashboard-stash-list>
     </div>
     <div *ngIf="isClientList()">
       <app-dashboard-client-list [clientList]="clientList"></app-dashboard-client-list>
