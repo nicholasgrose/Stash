@@ -10,7 +10,7 @@
   </thead>
   <tbody *ngFor="let client of clientList">
     <tr>
-      <th scope="row">{{client.client_id}}</th>
+      <th scope="row">{{getUserName(client.client_id)}}</th>
       <td>{{client.description}}</td>
       <td>{{client.start_date}}</td>
       <td>{{client.end_date}}</td>

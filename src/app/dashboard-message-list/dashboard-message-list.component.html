@@ -10,7 +10,7 @@
   </thead>
   <tbody *ngFor="let message of messageList">
     <tr>
-      <th scope="row">{{message.client_id}}</th>
+      <th scope="row">{{getUserName(message.client_id)}}</th>
       <td>{{message.description}}</td>
       <td>{{message.start_date}}</td>
       <td>{{message.end_date}}</td>

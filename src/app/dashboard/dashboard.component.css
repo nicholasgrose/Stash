@@ -4,6 +4,7 @@
 
 .dashboard-buttons {
   width: 33%;
+  margin-top: 5%;
 }
 
 .submit {
@@ -25,4 +26,9 @@ button {
   align-content: center;
   margin: auto;
   display: block;
+}
+
+form {
+  margin: 1%;
+  margin-top: 15%;
 }

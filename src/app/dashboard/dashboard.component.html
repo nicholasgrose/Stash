@@ -8,10 +8,10 @@
 
     <form (ngSubmit)="onSubmit()">
       <div class="input-group">
-        <input [(ngModel)]="userAvailability" class="form-control"
+        <input [(ngModel)]="userAvailability" class="form-control" name="userAvailability" required
           type="number" placeholder="Number of available spaces">
         <div class="input-group-btn input-group-append">
-          <button class="btn submit">
+          <button type="submit" class="btn submit">
             Set available spaces
           </button>
         </div>

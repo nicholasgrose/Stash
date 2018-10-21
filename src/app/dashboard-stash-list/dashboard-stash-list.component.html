@@ -10,7 +10,7 @@
   </thead>
   <tbody *ngFor="let stash of stashList">
     <tr>
-      <th scope="row">{{stash.client_id}}</th>
+      <th scope="row">{{getUserName(stash.client_id)}}</th>
       <td>{{stash.description}}</td>
       <td>{{stash.start_date}}</td>
       <td>{{stash.end_date}}</td>
