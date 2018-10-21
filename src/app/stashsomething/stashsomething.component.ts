@@ -9,11 +9,11 @@ import { Transaction } from '../transaction';
 })
 export class StashsomethingComponent implements OnInit {
   stash_id: string;
-  selectedAddress: string;
-  boxes: number;
+  address: string;
+  description: string;
   start_date: string;
   end_date: string;
-  address: string;
+  boxes: number;
 
   constructor( private mongoDB: MongodbService ) { }
 
@@ -31,12 +31,13 @@ export class StashsomethingComponent implements OnInit {
       }).then(x => this.stash_id = x[0].id);
 
     const transaction: Transaction = {
+      client_id: this.mongoDB.client.auth.user.id,
+      stash_id: this.stash_id,
+      address: this.address,
+      description: this.description,
       start_date: this.start_date,
       end_date: this.end_date,
-      boxes: this.boxes,
-      address: this.address,
-      client_id: this.mongoDB.client.auth.user.id,
-      stash_id: this.stash_id
+      boxes: this.boxes
     };
 
     this.mongoDB.addEntry('Transactions', transaction);
