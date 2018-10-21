@@ -1,8 +1,8 @@
 export interface Transaction {
-  start_date: string;
-  address: string;
-  end_date: string;
   client_id: string;
   stash_id: string;
+  address: string;
+  start_date: string;
+  end_date: string;
   boxes: number;
 }

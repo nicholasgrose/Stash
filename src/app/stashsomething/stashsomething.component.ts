@@ -26,9 +26,9 @@ export class StashsomethingComponent implements OnInit {
       return;
     }// else if (start_date > end_date) TODO: convert date input to ms since epoch
 
-    this.stash_id = this.mongoDB.getEntries('Users', {
-        billingAddress: this.address
-      }).then(x => x[0].id);
+    this.mongoDB.getEntries('Users', {
+      'billingAddress': this.address
+      }).then(x => this.stash_id = x[0].id);
 
     const transaction: Transaction = {
       start_date: this.start_date,

@@ -7,40 +7,20 @@ import { MongodbService } from '../mongodb.service';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  messages: any[] = [
-    {
-      client: 'Bob',
-      storageRequested: 1,
-      stashDescription: 'Pictures',
-      timePeriod: 3
-    },
-    {
-      client: 'Bob',
-      storageRequested: 1,
-      stashDescription: 'Pictures',
-      timePeriod: 4
-    },
-    {
-      client: 'Bob',
-      storageRequested: 1,
-      stashDescription: 'Pictures',
-      timePeriod: 5
-    }
-  ];
 
-  constructor( mongoDB : MongodbService) { }
+  constructor(private mongoDB: MongodbService) { }
 
   ngOnInit() {
-    let client = this.mongoDB.client;
-    if (this.client.auth.hasRedirectResult()) {
-      this.client.auth.handleRedirectResult().then(user => {
-          console.log(user);
+    const client = this.mongoDB.client;
+    if (client.auth.hasRedirectResult()) {
+      client.auth.handleRedirectResult().then(user => {
+        console.log(user);
       });
     }
   }
 
   setAvailableSpace(query: Object, space: number) {
-    this.mongoDB.updateEntry('Users', query, 'availability', number);
+    this.mongoDB.updateEntry('Users', query, 'availability', space);
   }
 
 }

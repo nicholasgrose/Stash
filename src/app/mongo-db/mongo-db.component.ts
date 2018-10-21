@@ -16,16 +16,16 @@ const mdb = client.getServiceClient(RemoteMongoClient.factory, 'mongodb-atlas');
 })
 export class MongoDbComponent implements OnInit {
 
-  constructor( private mongoDB : MongodbService ) { }
+  constructor( private mongoDB: MongodbService ) { }
 
-  ngOnInit() { //TODO: move to whereever we put the user after they log in
-    let client = this.mongoDB.client;
+  ngOnInit() { // TODO: move to whereever we put the user after they log in
+    const client = this.mongoDB.client;
     if (client.auth.hasRedirectResult()) {
       client.auth.handleRedirectResult().then(user => {
           console.log(user);
       });
     }
-    this.mongoDB.deleteEntries('StashCollection');
+    // this.mongoDB.deleteEntries('StashCollection');
   }
 
 
