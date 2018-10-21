@@ -4,6 +4,9 @@
   background-color: #006cb2;
   border-color: rgba(0, 0, 0, 0);
 }
+.submit:hover:disabled {
+  cursor: not-allowed;
+}
 .submit:hover:not(:disabled) {
   background-color: #009aff;
 }
