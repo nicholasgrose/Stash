@@ -29,7 +29,7 @@ export class DashboardComponent implements OnInit {
   }
 
   setAvailableSpace(query: Object, space: number) {
-    this.mongoDB.updateEntry('Users', query, 'availability', +(prompt("How many boxes can you store?")));
+    this.mongoDB.updateEntry('Users', query, 'availability', +(prompt('How many boxes can you store?')));
   }
 
 }
