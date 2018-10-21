@@ -1,6 +1,7 @@
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
@@ -13,6 +14,7 @@ import { DashboardMessageListComponent } from './dashboard-message-list/dashboar
 import { DashboardStashListComponent } from './dashboard-stash-list/dashboard-stash-list.component';
 import { DashboardClientListComponent } from './dashboard-client-list/dashboard-client-list.component';
 import { CreateaccountComponent } from './createaccount/createaccount.component';
+import { from } from 'rxjs';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,8 @@ import { CreateaccountComponent } from './createaccount/createaccount.component'
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

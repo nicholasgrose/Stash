@@ -26,6 +26,7 @@
 }
 
 .btn-primary {
+  border-color: rgba(0, 0, 0, 0);
   background-color: #006cb2;
 }
 .btn-primary:hover {
@@ -33,6 +34,7 @@
 }
 
 .btn-secondary {
+  border-color: rgba(0, 0, 0, 0);
   background-color: #ffb347;
 }
 .btn-secondary:hover {

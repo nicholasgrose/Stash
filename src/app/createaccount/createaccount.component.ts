@@ -8,6 +8,7 @@ import { User } from '../user';
   styleUrls: ['./createaccount.component.css']
 })
 export class CreateaccountComponent implements OnInit {
+  newUser: User;
   name: string;
   email: string;
   billingAddress: string;
