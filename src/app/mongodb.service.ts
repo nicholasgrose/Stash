@@ -62,6 +62,9 @@ export class MongodbService {
 
   updateEntry(collec: string, query: Object, property: string, newVal: number): void {
     const collection = this.mdb.db('StashDB').collection(collec);
-    collection.updateOne(query, { property : newVal });
+    this.getEntries(collec, query).then(x => {
+      x[0][property] = newVal;
+      collection.updateOne(query, x[0]);
+    });
   }
 }

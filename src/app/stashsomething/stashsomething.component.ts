@@ -24,7 +24,7 @@ export class StashsomethingComponent implements OnInit {
   constructor( private mongoDB: MongodbService ) { }
 
   ngOnInit() {
-    this.mongoDB.getEntries('Users', { 'boxes': { $gt: 0 } }).then(x => {
+    this.mongoDB.getEntries('Users', { 'availability': { $gt: 0 } }).then(x => {
       this.possibleAddresses = x;
       this.filteredAddresses = x;
     });
@@ -46,7 +46,7 @@ export class StashsomethingComponent implements OnInit {
 
   filterAddresses(): void {
     this.filteredAddresses = this.possibleAddresses
-      .filter(value => value.boxes >= this.newTransaction.boxes)
+      .filter(value => value.availability >= this.newTransaction.boxes)
       .map(value => value.address);
   }
 
