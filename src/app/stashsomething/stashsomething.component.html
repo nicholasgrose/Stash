@@ -1,13 +1,13 @@
 <div class="container">
     <h1>Stash Something</h1>
 
-    <form (ngSubmit)="submit()">
+    <form (ngSubmit)="submit()" #stashSubmissionForm="ngForm">
 
       <div class="form-group">
         <label for="address">Address</label>
         <select [(ngModel)]="newTransaction.address" name="address" required
-          class="form-control" id="address">
-          <option>Test option</option>
+          class="form-control" id="address" *ngIf="filteredAddresses">
+            <option *ngFor="let address of filteredAddresses">{{address}}</option>
         </select>
       </div>
 
@@ -37,7 +37,8 @@
 
 
       <div>
-        <button href="javascript:void(0)" type="submit" class="btn submit">Submit</button>
+        <button href="javascript:void(0)" type="submit"
+          class="btn submit" [disabled]="!stashSubmissionForm.form.valid">Submit</button>
         <button href="javascript:void(0)" class="btn cancel" type="button" routerLink="/welcome">Cancel</button>
       </div>
 

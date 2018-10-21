@@ -19,7 +19,7 @@ export class StashsomethingComponent implements OnInit {
   };
   stash_id: string;
   possibleAddresses: Transaction[];
-  filteredAddresses: Transaction[];
+  filteredAddresses: string[];
 
   constructor( private mongoDB: MongodbService ) { }
 
@@ -40,12 +40,14 @@ export class StashsomethingComponent implements OnInit {
         this.newTransaction.client_id = this.mongoDB.client.auth.user.id;
         this.newTransaction.stash_id = this.stash_id;
 
-        this.mongoDB.addEntry('Transactions', this.newTransaction);
+        this.mongoDB.addEntry('Transactions', this.newTransaction).then(() => window.location.href = '/dashboard');
       });
   }
 
   filterAddresses(): void {
-    this.filteredAddresses = this.possibleAddresses.filter(value => value.boxes >= this.newTransaction.boxes);
+    this.filteredAddresses = this.possibleAddresses
+      .filter(value => value.boxes >= this.newTransaction.boxes)
+      .map(value => value.address);
   }
 
 }
