@@ -11,6 +11,9 @@ export class WelcomeComponent implements OnInit {
   constructor( private mongoDB : MongodbService ) { }
 
   ngOnInit() {
+    if (this.mongoDB.client.auth.isLoggedIn) {
+      window.location.href = './dashboard';
+    }
   }
 
 }

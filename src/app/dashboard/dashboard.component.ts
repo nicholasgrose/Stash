@@ -17,6 +17,15 @@ export class DashboardComponent implements OnInit {
         console.log(user);
       });
     }
+    if (!this.mongoDB.client.auth.isLoggedIn) {
+      window.location.href = './welcome';
+    }
+
+    this.mongoDB.getEntries('Users', {id:this.mongoDB.client.auth.user.id}).then( x => {
+      if (x.length === 0) {
+        window.location.href = './createaccount';
+      }
+    });
   }
 
   setAvailableSpace(query: Object, space: number) {
