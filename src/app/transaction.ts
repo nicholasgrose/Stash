@@ -1,9 +1,8 @@
-import { StorageSpace } from './storage-space';
-
 export interface Transaction {
-  start_date: Date;
-  end_date: Date;
+  start_date: string;
+  address: string;
+  end_date: string;
   client_id: string;
   stash_id: string;
-  boxes: StorageSpace[];
+  boxes: number;
 }

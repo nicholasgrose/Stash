@@ -2,10 +2,10 @@ import { StorageSpace } from './storage-space';
 
 export interface User {
   id: string;
-  payment: String;
-  name: String;
-  billingAddress: String;
-  email: String;
+  payment: string;
+  name: string;
+  billingAddress: string;
+  email: string;
   rating: number;
-  availability: StorageSpace[];
+  availability: number;
 }

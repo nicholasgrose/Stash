@@ -30,7 +30,7 @@ export class MongodbService {
     }
   }
 
-  addEntry(collec: String, entry: Object): void {
+  addEntry(collec: string, entry: Object): void {
     if (this.client.auth.isLoggedIn) {
       const collection = this.mdb.db('StashDB').collection(collec);
       collection.insertOne({ owner_id: this.client.auth.user.id, message: 'Database working ' + Date.now() });
@@ -39,26 +39,26 @@ export class MongodbService {
     }
   }
 
-  getEntries(collec: String, query: Object): Promise<any[]> {
+  getEntries(collec: string, query: Object): Promise<any[]> {
     const collection: RemoteMongoCollection<any[]> = this.mdb.db('StashDB').collection(collec);
     return collection.find(query).asArray();
   }
 
-  printEntries(collec: String, query: Object): void {
-    this.getEntries(collec).then(results => { console.log(results); });
+  printEntries(collec: string, query: Object): void {
+    this.getEntries(collec, query).then(results => { console.log(results); });
   }
 
-  deleteEntries(collec: String, query: Object): void {
+  deleteEntries(collec: string, query: Object): void {
     const collection = this.mdb.db('StashDB').collection(collec);
     collection.deleteMany(query);
   }
 
-  deleteEntry(collec: String, query: Object): void {
+  deleteEntry(collec: string, query: Object): void {
     const collection = this.mdb.db('StashDB').collection(collec);
     collection.deleteOne(query);
   }
 
-  updateEntry(collec: String, query: Object, property: string, newVal: int): void {
+  updateEntry(collec: string, query: Object, property: string, newVal: number): void {
     const collection = this.mdb.db('StashDB').collection(collec);
     collection.updateOne(query, { property : newVal });
   }

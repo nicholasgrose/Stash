@@ -13,15 +13,14 @@ export class CreateaccountComponent implements OnInit {
   email: string;
   billingAddress: string;
   payment: string;
-
   end_date: number;
-  boxes: [];
+  boxes: number;
 
-  constructor( private mongoDB : MongodbService ) { }
+  constructor( private mongoDB: MongodbService ) { }
 
   ngOnInit() {
-    //log the user in
-    let client = this.mongoDB.client;
+    // log the user in
+    const client = this.mongoDB.client;
     if (client.auth.hasRedirectResult()) {
       client.auth.handleRedirectResult().then(user => {
           console.log(user);
@@ -30,22 +29,22 @@ export class CreateaccountComponent implements OnInit {
   }
 
   submit() {
-    //TODO: 4 text boxes
-    //TODO: check that no boxes are empty
-    user: User = {
+    // TODO: 4 text boxes
+    // TODO: check that no boxes are empty
+    const user: User = {
       id: this.mongoDB.client.auth.user.id,
       payment: this.payment,
       name: this.name,
       billingAddress: this.billingAddress,
       email: this.email,
       rating: 5,
-      availability: 0;
-    }
+      availability: 0
+    };
     this.mongoDB.addEntry('Users', user);
   }
-  
-  removeTransaction(collec: String, query: Object) {
-    this.mongoDB.deleteEntry(query);
+
+  removeTransaction(collec: string, query: Object) {
+    this.mongoDB.deleteEntry(collec, query);
   }
 
 
