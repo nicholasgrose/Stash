@@ -1,34 +1,45 @@
 <div class="container">
-  <h1>Stash</h1>
+    <h1>Stash Something</h1>
 
-  <form id=formId [(ngModel)]="newTransaction">
+    <form (ngSubmit)="submit()">
 
-    <!-- TODO: dropdown thing with all the addresses from the database -->
+      <div class="form-group">
+        <label for="address">Address</label>
+        <select [(ngModel)]="newTransaction.address" name="address" required
+          class="form-control" id="address">
+          <option>Test option</option>
+        </select>
+      </div>
 
-    <div class="form-group">
-      <label for="start_date">Start date</label>
-      <input class="form-control" type="email" id="start_date" placeholder="Enter start date" ngModel>
-    </div>
+      <div class="form-group">
+        <label for="start-date">Start Date</label>
+        <input [(ngModel)]="newTransaction.start_date" name="start_date" required
+          class="form-control" type="date" id="start_date">
+      </div>
 
-    <div class="form-group">
-      <label for="end_date">End date</label>
-      <input class="form-control" type="text" id="end_date" placeholder="Enter end date" ngModel>
-    </div>
+      <div class="form-group">
+        <label for="end_date">End Date</label>
+        <input [(ngModel)]="newTransaction.end_date" name="end_date" required
+          class="form-control" type="date" id="end_date">
+      </div>
 
-    <div class="form-group">
-      <label for="boxes">Number of boxes to store</label>
-      <input class="form-control" type="text" id="boxes" placeholder="Enter number of boxes to store" ngModel>
-    </div>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <input [(ngModel)]="newTransaction.description" name="description" required
+          class="form-control" type="text" id="description" placeholder="Enter description">
+      </div>
 
-    <div class="form-group">
-      <label for="description">Description of what is in the boxes</label>
-      <input class="form-control" type="text" id="description" placeholder="Enter Description of what is in the boxes" ngModel>
-    </div>
+      <div class="form-group">
+        <label for="boxes">Number of Boxes</label>
+        <input [(ngModel)]="newTransaction.boxes" name="boxes" required
+          class="form-control" type="number" id="boxes" (onblur)="filterAddresses()">
+      </div>
 
-    <div>
-      <button href="javascript:void(0)" type="submit" class="btn submit">Submit</button>
-      <button href="javascript:void(0)" class="btn cancel" type="button" routerLink="/welcome">Cancel</button>
-    </div>
 
-  </form>
-</div>
+      <div>
+        <button href="javascript:void(0)" type="submit" class="btn submit">Submit</button>
+        <button href="javascript:void(0)" class="btn cancel" type="button" routerLink="/welcome">Cancel</button>
+      </div>
+
+    </form>
+  </div>

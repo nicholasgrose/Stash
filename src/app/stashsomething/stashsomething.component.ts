@@ -8,41 +8,44 @@ import { Transaction } from '../transaction';
   styleUrls: ['./stashsomething.component.css']
 })
 export class StashsomethingComponent implements OnInit {
-  newTransaction: Transaction;
+  newTransaction: Transaction = {
+    client_id: '',
+    stash_id: '',
+    address: '',
+    description: '',
+    start_date: '',
+    end_date: '',
+    boxes: 0
+  };
   stash_id: string;
-  address: string;
-  description: string;
-  start_date: string;
-  end_date: string;
-  boxes: number;
+  possibleAddresses: Transaction[];
+  filteredAddresses: Transaction[];
 
   constructor( private mongoDB: MongodbService ) { }
 
   ngOnInit() {
+    this.mongoDB.getEntries('Users', { 'boxes': { $gt: 0 } }).then(x => {
+      this.possibleAddresses = x;
+      this.filteredAddresses = x;
+    });
   }
 
-  addTransaction() {
-    // TODO: 4 text boxes, 1 dropdown box with addresses
-    if (this.boxes < 1) {
+  submit() {
+    if (this.newTransaction.boxes < 1) {
       return;
     }// else if (start_date > end_date) TODO: convert date input to ms since epoch
-
     this.mongoDB.getEntries('Users', {
-      'billingAddress': this.address
-      }).then(x => this.stash_id = x[0].id);
+      'billingAddress': this.newTransaction.address
+      }).then(x => this.stash_id = x[0].id).then(() => {
+        this.newTransaction.client_id = this.mongoDB.client.auth.user.id;
+        this.newTransaction.stash_id = this.stash_id;
 
-    const transaction: Transaction = {
-      client_id: this.mongoDB.client.auth.user.id,
-      stash_id: this.stash_id,
-      address: this.address,
-      description: this.description,
-      start_date: this.start_date,
-      end_date: this.end_date,
-      boxes: this.boxes
-    };
-
-    this.mongoDB.addEntry('Transactions', transaction);
+        this.mongoDB.addEntry('Transactions', this.newTransaction);
+      });
   }
 
+  filterAddresses(): void {
+    this.filteredAddresses = this.possibleAddresses.filter(value => value.boxes >= this.newTransaction.boxes);
+  }
 
 }

@@ -1,0 +1,39 @@
+.submit {
+  margin: 1%;
+  color: white;
+  background-color: #006cb2;
+  border-color: rgba(0, 0, 0, 0);
+}
+.submit:hover {
+  background-color: #009aff;
+}
+.submit:active {
+  background-color: #ff9600;
+}
+
+.cancel {
+  margin: 1%;
+  color: white;
+  background-color: #ffb347;
+  border-color: rgba(0, 0, 0, 0);
+}
+.cancel:hover {
+  background-color: #ff9600;
+}
+.cancel:active {
+  background-color: #006cb2;
+}
+
+.container {
+  padding: 2%;
+  width: 75%;
+}
+
+.form-group {
+  padding: 0.3%;
+}
+
+h1 {
+  padding: 1%;
+  font-weight: 300;
+}
