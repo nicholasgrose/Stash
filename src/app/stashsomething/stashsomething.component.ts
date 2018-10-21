@@ -8,6 +8,7 @@ import { Transaction } from '../transaction';
   styleUrls: ['./stashsomething.component.css']
 })
 export class StashsomethingComponent implements OnInit {
+  newTransaction: Transaction;
   stash_id: string;
   address: string;
   description: string;
