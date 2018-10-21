@@ -1,12 +1,25 @@
 <div class="center">
-  <div class="center">
-    <button class="btn btn-primary" routerLink="/stashsomething" routerLinkActive="active">
+
+  <div class="center dashboard-buttons">
+
+    <button class="btn submit" routerLink="/stashsomething" routerLinkActive="active">
       Stash something
     </button>
-    <button class="btn btn-secondary" (click)="setAvailableSpace({ 'id': this.mongoDB.client.auth.user.id })">
-      Set available space
-    </button>
+
+    <form (ngSubmit)="onSubmit()" )>
+      <div class="input-group">
+        <input [(ngModel)]="userAvailability" class="form-control"
+          type="number" placeholder="Number of available spaces">
+        <div class="input-group-btn input-group-append">
+          <button class="btn submit">
+            Set available spaces
+          </button>
+        </div>
+      </div>
+    </form>
+
   </div>
 
   <app-dashboard-list></app-dashboard-list>
+
 </div>

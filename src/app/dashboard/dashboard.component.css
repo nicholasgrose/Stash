@@ -2,8 +2,27 @@
   margin: auto;
 }
 
+.dashboard-buttons {
+  width: 33%;
+}
+
+.submit {
+  color: white;
+  background-color: #006cb2;
+  border-color: rgba(0, 0, 0, 0);
+}
+.submit:hover:disabled {
+  cursor: not-allowed;
+}
+.submit:hover:not(:disabled) {
+  background-color: #009aff;
+}
+.submit:active {
+  background-color: #ff9600 !important;
+}
+
 button {
+  align-content: center;
   margin: auto;
-  margin-top: 5%;
   display: block;
 }

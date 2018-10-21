@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MongodbService } from '../mongodb.service';
+import { User } from '../user';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,6 +8,8 @@ import { MongodbService } from '../mongodb.service';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+  currentUser: User;
+  userAvailability: number;
 
   constructor(private mongoDB: MongodbService) { }
 
@@ -24,12 +27,15 @@ export class DashboardComponent implements OnInit {
     this.mongoDB.getEntries('Users', {id: this.mongoDB.client.auth.user.id}).then( x => {
       if (x.length === 0) {
         window.location.href = './createaccount';
+      } else {
+        this.currentUser = x[0];
       }
     });
   }
 
-  setAvailableSpace(query: Object, space: number) {
-    this.mongoDB.updateEntry('Users', query, 'availability', +(prompt('How many boxes can you store?')));
+  onSubmit() {
+    this.currentUser.availability = this.userAvailability;
+    this.mongoDB.updateEntry('Users', { 'id': this.currentUser.id }, 'availability', this.userAvailability);
   }
 
 }
