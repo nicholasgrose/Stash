@@ -41,7 +41,7 @@
   border-color: rgba(0, 0, 0, 0);
 }
 .login:hover:not(:disabled) {
-  background-color: #ff9600;
+  background-color: #ff9600 !important;
 }
 .login:active {
   background-color: #006cb2 !important;
