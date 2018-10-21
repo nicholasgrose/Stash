@@ -25,7 +25,7 @@ export class MongoDbComponent implements OnInit {
           console.log(user);
       });
     }
-    // this.mongoDB.deleteEntries('StashCollection');
+    //this.mongoDB.deleteEntries('Users', {});
   }
 
 

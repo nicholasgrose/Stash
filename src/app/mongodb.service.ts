@@ -34,7 +34,7 @@ export class MongodbService {
   addEntry(collec: string, entry: Object): Promise<RemoteInsertOneResult> {
     if (this.client.auth.isLoggedIn) {
       const collection = this.mdb.db('StashDB').collection(collec);
-      return collection.insertOne({ owner_id: this.client.auth.user.id, message: 'Database working ' + Date.now() });
+      return collection.insertOne(entry);
     } else {
       console.log('Error: User is not logged in');
       return null;

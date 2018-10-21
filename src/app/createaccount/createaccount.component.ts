@@ -32,6 +32,8 @@ export class CreateaccountComponent implements OnInit {
       window.location.href = './welcome';
     }
 
+    this.mongoDB.printEntries('Users', {});
+
     this.mongoDB.getEntries('Users', {id: this.mongoDB.client.auth.user.id}).then( x => {
       if (x.length > 0) {
         window.location.href = './dashboard';
